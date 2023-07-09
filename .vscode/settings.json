@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "*.in": "c",
+        "iostream": "cpp",
+        "iomanip": "cpp",
+        "iosfwd": "cpp",
+        "ios": "cpp",
+        "sstream": "cpp",
+        "limits": "cpp",
+        "xstring": "cpp",
+        "cmath": "cpp",
+        "ostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
+}

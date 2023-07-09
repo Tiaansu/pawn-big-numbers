@@ -1,0 +1,69 @@
+/* Pawn Big Numbers
+ * Version @PAWNBIGNUMBERS_VERSION@
+ * made by Tiaansu
+ */
+
+#if defined pawnbignumbers_included
+    #endinput
+#endif 
+#define pawnbignumbers_included
+
+native BigNumber_AddFloatNumber(const num1[], const num2[], output[], len = sizeof(output));
+native BigNumber_FormatFloatNumber(const number[], const delimiter[] = ",", output[], len = sizeof(output));
+native bool:BigNumber_IsFloatNumberGreater(const num1[], const num2[]);
+
+native BigNumber_AddIntNumber(const num1[], const num2[], output[], len = sizeof(output));
+native BigNumber_FormatIntNumber(const number[], const delimiter[] = ",", output[], len = sizeof(output));
+native bool:BigNumber_IsIntNumberGreater(const num1[], const num2[]);
+
+stock BigNumber_AddNumber(const num1[], const num2[], bool:isFloat)
+{
+    new output[5000];
+
+    if (isFloat)
+    {
+        BigNumber_AddFloatNumber(num1, num2, output);
+    }
+    else
+    {
+        BigNumber_AddIntNumber(num1, num2, output);
+    }
+
+    return output;
+}
+
+stock BigNumber_FormatNumber(const number[], const delimiter[] = ",", bool:isFloat)
+{
+    new output[5000];
+
+    if (isFloat)
+    {
+        BigNumber_FormatFloatNumber(number, delimiter, output);
+    }
+    else
+    {
+        BigNumber_FormatIntNumber(number, delimiter, output);
+    }
+
+    return output;
+}
+
+stock bool:BigNumber_IsGreater(const num1[], const num2[], bool:isFloat)
+{
+    if (isFloat)
+    {
+        if (BigNumber_IsFloatNumberGreater(num1, num2))
+        {
+            return true;
+        }
+        return false;
+    }
+    else
+    {
+        if (BigNumber_IsIntNumberGreater(num1, num2))
+        {
+            return true;
+        }
+        return false;
+    }
+}
